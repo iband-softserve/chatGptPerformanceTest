@@ -1,6 +1,7 @@
 ﻿using chatGptPerformanceTest.Shared.Abstract.Repositories;
 using chatGptPerformanceTest.Shared.Abstract.Services;
 using chatGptPerformanceTest.Shared.CountriesApiModels.Country;
+using chatGptPerformanceTest.Shared.FilterModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace chatGptPerformanceTest.Services.Implementation
             this.countriesRepository = countriesRepository;
         }
 
-        public async Task<List<Country>?> GetAllCountries(string? countryName, int? population, string? sortType, int? numberOfRecords)
+        public async Task<List<Country>?> GetCountries(CountryFilter countryFilter)
         {
             var countries = await countriesRepository.GetAllCountries();
             
@@ -25,24 +26,24 @@ namespace chatGptPerformanceTest.Services.Implementation
                 return new List<Country>();
             }
 
-            if (!string.IsNullOrEmpty(countryName))
+            if (!string.IsNullOrEmpty(countryFilter.CountryName))
             {
-                countries = FilterByName(countries, countryName.ToLower());
+                countries = FilterByName(countries, countryFilter.CountryName.ToLower());
             }
 
-            if (population.HasValue)
+            if (countryFilter.Population.HasValue)
             {
-                countries = FilterByPopulation(countries, population.Value * 1000000);
+                countries = FilterByPopulation(countries, countryFilter.Population.Value * 1000000);
             }
 
-            if (!string.IsNullOrEmpty(sortType))
+            if (!string.IsNullOrEmpty(countryFilter.SortType))
             {
-                countries = SortByCountryName(countries, sortType.ToLower());
+                countries = SortByCountryName(countries, countryFilter.SortType.ToLower());
             }
 
-            if (numberOfRecords.HasValue)
+            if (countryFilter.NumberOfRecords.HasValue)
             {
-                countries = ApplyPagination(countries, numberOfRecords.Value);
+                countries = ApplyPagination(countries, countryFilter.NumberOfRecords.Value);
             }
 
             return countries;

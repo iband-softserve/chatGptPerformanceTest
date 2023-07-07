@@ -1,5 +1,6 @@
 ﻿using chatGptPerformanceTest.Shared.Abstract.Services;
 using Microsoft.AspNetCore.Mvc;
+using chatGptPerformanceTest.Shared.FilterModels;
 
 namespace chatGptPerformanceTest.Controllers
 {
@@ -21,7 +22,14 @@ namespace chatGptPerformanceTest.Controllers
             [FromQuery] string? sortType,
             [FromQuery] int? numberOfRecords)
         {
-            return Ok(await _countriesService.GetAllCountries(name, population, sortType, numberOfRecords));
+            return Ok(await _countriesService.GetCountries(
+                new CountryFilter()
+                {
+                    CountryName = name,
+                    Population = population,
+                    SortType = sortType,
+                    NumberOfRecords = numberOfRecords
+                }));
         }
     }
 }
