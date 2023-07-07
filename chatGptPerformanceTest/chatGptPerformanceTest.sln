@@ -5,6 +5,12 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatGptPerformanceTest", "chatGptPerformanceTest\chatGptPerformanceTest.csproj", "{4002C41B-42C4-451F-BA65-266B41CCE004}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatGptPerformanceTest.Repositories", "chatGptPerformanceTest.Repositories\chatGptPerformanceTest.Repositories.csproj", "{BF209B08-0A89-4735-8F10-01498F631640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatGptPerformanceTest.Services", "chatGptPerformanceTest.Services\chatGptPerformanceTest.Services.csproj", "{45A5D9F5-E4DB-44A4-8A80-8AB00E12E025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatGptPerformanceTest.Shared", "chatGptPerformanceTest.Shared\chatGptPerformanceTest.Shared.csproj", "{728CB92B-DD5F-427C-8536-1457D005E1B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{4002C41B-42C4-451F-BA65-266B41CCE004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4002C41B-42C4-451F-BA65-266B41CCE004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4002C41B-42C4-451F-BA65-266B41CCE004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF209B08-0A89-4735-8F10-01498F631640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF209B08-0A89-4735-8F10-01498F631640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF209B08-0A89-4735-8F10-01498F631640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF209B08-0A89-4735-8F10-01498F631640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A5D9F5-E4DB-44A4-8A80-8AB00E12E025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A5D9F5-E4DB-44A4-8A80-8AB00E12E025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A5D9F5-E4DB-44A4-8A80-8AB00E12E025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A5D9F5-E4DB-44A4-8A80-8AB00E12E025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{728CB92B-DD5F-427C-8536-1457D005E1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728CB92B-DD5F-427C-8536-1457D005E1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728CB92B-DD5F-427C-8536-1457D005E1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728CB92B-DD5F-427C-8536-1457D005E1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
