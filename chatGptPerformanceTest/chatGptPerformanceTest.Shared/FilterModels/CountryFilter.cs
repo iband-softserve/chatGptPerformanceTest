@@ -1,34 +1,18 @@
 ﻿namespace chatGptPerformanceTest.Shared.FilterModels
 {
     public class CountryFilter
-    {
-        private string? countryName;
-        private int? population;
-        private string? sortType;
-        private int? numberOfRecords;
-        
-        public string? CountryName
-        {
-            get => countryName;
-            set => countryName = value;
-        }
+    {        
+        public string? CountryName;
+        public int? Population;
+        public string? SortType;
+        public int? NumberOfRecords;
 
-        public int? Population
+        public CountryFilter()
         {
-            get => population;
-            set => population = value;
-        }
-
-        public string? SortType
-        {
-            get => sortType;
-            set => sortType = value;
-        }
-
-        public int? NumberOfRecords
-        {
-            get => numberOfRecords; 
-            set => numberOfRecords = value;
+            CountryName = null;
+            Population = null;
+            SortType = null;
+            NumberOfRecords = null;
         }
     }
 }
