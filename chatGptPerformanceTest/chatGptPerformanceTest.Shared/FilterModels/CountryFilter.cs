@@ -2,17 +2,9 @@
 {
     public class CountryFilter
     {        
-        public string? CountryName;
-        public int? Population;
-        public string? SortType;
-        public int? NumberOfRecords;
-
-        public CountryFilter()
-        {
-            CountryName = null;
-            Population = null;
-            SortType = null;
-            NumberOfRecords = null;
-        }
+        public string? CountryName { get; set; }
+        public int? Population { get; set; }
+        public string? SortType { get; set; }
+        public int? NumberOfRecords { get; set; }
     }
 }
