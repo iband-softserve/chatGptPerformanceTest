@@ -20,13 +20,23 @@ namespace chatGptPerformanceTest.Services.Implementation
         {
             var countries = await countriesRepository.GetAllCountries();
             
-            if(countries == null)
+            if (countries == null)
             {
                 return new List<Country>();
+            }
+
+            if (!string.IsNullOrEmpty(countryName))
+            {
+                countries = FilterByName(countries, countryName);
             }
 
             return countries;
         }
 
+        private List<Country> FilterByName(List<Country> countries, string countryName)
+        {
+            countryName = countryName.ToLower();
+            return countries.Where(country => country.name != null && country.name.common != null && country.name.common.ToLower().Contains(countryName)).ToList();
+        }
     }
 }
