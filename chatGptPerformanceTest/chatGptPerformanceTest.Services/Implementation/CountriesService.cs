@@ -40,6 +40,11 @@ namespace chatGptPerformanceTest.Services.Implementation
                 countries = SortByCountryName(countries, sortType.ToLower());
             }
 
+            if (numberOfRecords.HasValue)
+            {
+                countries = ApplyPagination(countries, numberOfRecords.Value);
+            }
+
             return countries;
         }
 
@@ -65,6 +70,11 @@ namespace chatGptPerformanceTest.Services.Implementation
             }
 
             return countries;
+        }
+
+        private List<Country> ApplyPagination(List<Country> countries, int numberOfRecords)
+        {
+            return countries.Take(numberOfRecords).ToList();
         }
     }
 }

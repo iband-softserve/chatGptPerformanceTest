@@ -1,5 +1,4 @@
 ﻿using chatGptPerformanceTest.Shared.Abstract.Services;
-using chatGptPerformanceTest.Shared.CountriesApiModels.Country;
 using Microsoft.AspNetCore.Mvc;
 
 namespace chatGptPerformanceTest.Controllers
