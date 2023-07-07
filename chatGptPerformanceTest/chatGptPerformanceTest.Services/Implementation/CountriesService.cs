@@ -27,7 +27,12 @@ namespace chatGptPerformanceTest.Services.Implementation
 
             if (!string.IsNullOrEmpty(countryName))
             {
-                countries = FilterByName(countries, countryName);
+                countries = FilterByName(countries, countryName.ToLower());
+            }
+
+            if (population.HasValue)
+            {
+                countries = FilterByPopulation(countries, population.Value * 1000000);
             }
 
             return countries;
@@ -35,8 +40,12 @@ namespace chatGptPerformanceTest.Services.Implementation
 
         private List<Country> FilterByName(List<Country> countries, string countryName)
         {
-            countryName = countryName.ToLower();
             return countries.Where(country => country.name != null && country.name.common != null && country.name.common.ToLower().Contains(countryName)).ToList();
+        }
+        
+        private List<Country> FilterByPopulation(List<Country> countries, int population)
+        {
+            return countries.Where(country => country.population < population).ToList();
         }
     }
 }
