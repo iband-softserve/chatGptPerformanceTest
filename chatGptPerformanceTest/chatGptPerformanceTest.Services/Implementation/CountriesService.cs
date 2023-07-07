@@ -35,17 +35,36 @@ namespace chatGptPerformanceTest.Services.Implementation
                 countries = FilterByPopulation(countries, population.Value * 1000000);
             }
 
+            if (!string.IsNullOrEmpty(sortType))
+            {
+                countries = SortByCountryName(countries, sortType.ToLower());
+            }
+
             return countries;
         }
 
         private List<Country> FilterByName(List<Country> countries, string countryName)
         {
-            return countries.Where(country => country.name != null && country.name.common != null && country.name.common.ToLower().Contains(countryName)).ToList();
+            return countries.Where(country => country.name.common != null && country.name.common.ToLower().Contains(countryName)).ToList();
         }
         
         private List<Country> FilterByPopulation(List<Country> countries, int population)
         {
             return countries.Where(country => country.population < population).ToList();
+        }
+
+        private List<Country> SortByCountryName(List<Country> countries, string sortType)
+        {
+            if (sortType == "ascend")
+            {
+                return countries.OrderBy(country => country.name.common).ToList();
+            }
+            else if (sortType == "descend")
+            {
+                return countries.OrderByDescending(country => country.name.common).ToList();
+            }
+
+            return countries;
         }
     }
 }

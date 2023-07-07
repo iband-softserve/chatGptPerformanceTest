@@ -6,7 +6,7 @@ namespace chatGptPerformanceTest.Shared.CountriesApiModels.Country
 {
     public class Country
     {
-        public Name? name { get; set; }
+        public Name name { get; set; }
         public List<string>? tld { get; set; }
         public string? cca2 { get; set; }
         public string? ccn3 { get; set; }
@@ -41,5 +41,10 @@ namespace chatGptPerformanceTest.Shared.CountriesApiModels.Country
         public string? startOfWeek { get; set; }
         public CapitalInfo? capitalInfo { get; set; }
         public PostalCode? postalCode { get; set; }
+
+        public Country()
+        {
+            name = new Name();
+        }
     }
 }
